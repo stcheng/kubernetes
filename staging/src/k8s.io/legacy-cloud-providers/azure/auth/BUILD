@@ -14,6 +14,16 @@ go_library(
     ],
 )
 
+go_test(
+    name = "go_default_test",
+    srcs = ["azure_auth_test.go],
+    embed = [":go_default_library"],
+    deps = [
+        "//vendor/github.com/Azure/go-autorest/autorest/adal:go_default_library",
+        "//vendor/github.com/Azure/go-autorest/autorest/azure:go_default_library",
+    ],
+)
+
 filegroup(
     name = "package-srcs",
     srcs = glob(["**"]),
